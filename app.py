@@ -9,6 +9,8 @@ app = Flask(__name__)
 def buscar_horario(transporte, dia, origen, destino):
     conn = sqlite3.connect('horarios.db')
     cursor = conn.cursor()
+    # Esta línea nos ayudará a depurar el problema en los logs de Render
+    print(f"Buscando con los parámetros: transporte={transporte}, dia={dia}, origen={origen}, destino={destino}")
     cursor.execute('''
         SELECT hora_salida, hora_llegada
         FROM horarios
