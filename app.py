@@ -35,4 +35,4 @@ def get_horarios():
     if horarios:
         return jsonify({"horarios_encontrados": horarios})
     else:
-        return jsonify({"mensaje": "No se encontraron horarios para esa ruta."})
+        return jsonify({"mensaje": "No se encontraron horarios para esTa ruta."})
