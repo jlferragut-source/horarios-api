@@ -21,7 +21,8 @@ def crear_db():
 
 def importar_horarios_tren(nombre_archivo, dia, direccion):
     conn = sqlite3.connect('horarios.db')
-    ruta_archivo = os.path.join('data', nombre_archivo)
+    # Ruta corregida: se eliminó 'data'
+    ruta_archivo = nombre_archivo
     try:
         df = pd.read_excel(ruta_archivo, header=None).fillna('')
         estaciones = df.iloc[0, 1:].tolist()
@@ -45,7 +46,8 @@ def importar_horarios_tren(nombre_archivo, dia, direccion):
 
 def importar_horarios_metro(nombre_archivo, dia, direccion):
     conn = sqlite3.connect('horarios.db')
-    ruta_archivo = os.path.join('data', nombre_archivo)
+    # Ruta corregida: se eliminó 'data'
+    ruta_archivo = nombre_archivo
     try:
         df = pd.read_excel(ruta_archivo)
         df.columns = ['estacion_salida', 'hora_salida', 'estacion_llegada', 'hora_llegada']
